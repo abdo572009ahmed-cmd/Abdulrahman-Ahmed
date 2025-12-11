@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>موقعي الشخصي | عبدالرحمن أحمد موسى</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --primary: #38bdf8;
+      --accent: #a855f7;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: radial-gradient(circle at 20% 20%, #1e293b, #0b1224 45%), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      padding: 32px 24px 16px;
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .logo { font-weight: 700; letter-spacing: 0.5px; }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 16px;
+      font-size: 14px;
+      transition: 0.2s ease;
+    }
+    nav a:hover { color: var(--primary); }
+    .hero {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 24px 64px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--primary);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+    h1 { font-size: 44px; margin: 12px 0 16px; line-height: 1.2; }
+    .muted { color: var(--muted); font-size: 15px; }
+    .cta {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn {
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s ease;
+      color: #0b1224;
+      background: linear-gradient(120deg, var(--primary), var(--accent));
+      box-shadow: var(--shadow);
+    }
+    .btn.secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: rgba(148, 163, 184, 0.4);
+      box-shadow: none;
+    }
+    .profile-card {
+      background: linear-gradient(145deg, rgba(17, 24, 39, 0.9), rgba(15, 23, 42, 0.8));
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: var(--shadow);
+      border-radius: 18px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .profile-card::after {
+      content: "";
+      position: absolute;
+      inset: -40px;
+      background: radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.35), transparent 45%);
+      pointer-events: none;
+    }
+    .profile-card img {
+      display: none;
+    }
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border: 2px solid rgba(56, 189, 248, 0.4);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 28px;
+      color: #0b1224;
+      box-shadow: var(--shadow);
+    }
+    .profile-top { display: flex; gap: 16px; align-items: center; }
+    .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .chip {
+      background: rgba(148, 163, 184, 0.12);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      border: 1px solid rgba(148, 163, 184, 0.15);
+    }
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 24px;
+    }
+    .section-title {
+      font-size: 26px;
+      margin-bottom: 16px;
+      letter-spacing: 0.3px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--card);
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      box-shadow: var(--shadow);
+    }
+    .card h3 { margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 14px; }
+    .timeline { border-inline-start: 2px solid rgba(56, 189, 248, 0.4); padding-inline-start: 16px; }
+    .timeline-item { margin-bottom: 16px; }
+    .timeline-item span { color: var(--primary); font-size: 13px; }
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .profile-top { justify-content: center; }
+      header { flex-direction: column; }
+      nav a { margin: 0 8px; }
+      .cta { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">عبدالرحمن أحمد موسى | مطور واجهات</div>
+    <nav>
+      <a href="#about">نبذة</a>
+      <a href="#services">خدماتي</a>
+      <a href="#projects">أعمال</a>
+      <a href="#contact">تواصل</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="about">
+      <div>
+        <div class="pill">جاهز لمشاريع جديدة</div>
+        <h1>أصمم وأطوّر مواقع عصرية تركز على تجربة المستخدم</h1>
+        <p class="muted">خبرة في بناء واجهات سريعة، متجاوبة، وبأسلوب بصري متقن.</p>
+        <div class="cta">
+          <a class="btn" href="https://wa.me/201062707461" target="_blank" rel="noopener">تواصل الآن</a>
+          <a class="btn secondary" href="mailto:abdo572009ahmed@gmail.com">إرسال بريد</a>
+        </div>
+        <div class="chips" style="margin-top:20px;">
+          <div class="chip">تصميم واجهات</div>
+          <div class="chip">حركة وتفاعل</div>
+          <div class="chip">سرعة وأداء</div>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-top">
+          <div class="avatar" aria-label="صورة شخصية">A</div>
+          <div>
+            <h3>Abdulrahman Ahmed Mosa</h3>
+            <p class="muted">Front-End Developer</p>
+            <div class="chips">
+              <div class="chip"> سنوات خبرة</div>
+              <div class="chip"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2 class="section-title">خدماتي</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>تجربة مستخدم UI/UX</h3>
+          <p>تصميم واجهات متناسقة، سهلة، وتجارب ترفع التحويل والرضا.</p>
+        </div>
+        <div class="card">
+          <h3>تطوير واجهات حديثة</h3>
+          <p>بناء مواقع وتطبيقات ويب سريعة باستخدام React/Vue وتقنيات حديثة.</p>
+        </div>
+        <div class="card">
+          <h3>تحسين الأداء</h3>
+          <p>تقليل وقت التحميل، تحسين الـ SEO، وضمان تجربة سلسة عبر الأجهزة.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">أعمال مختارة</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>منصة تعليمية</h3>
+          <p>لوحات تحكم تفاعلية، بث مباشر، وتصميم مخصص للطلاب والمدربين.</p>
+        </div>
+        <div class="card">
+          <h3>متجر إلكتروني</h3>
+          <p>تجربة شراء مرنة مع فلترة متقدمة وسلة سريعة الاستجابة.</p>
+        </div>
+        <div class="card">
+          <h3>موقع شركة تقنية</h3>
+          <p>صفحات هبوط تسويقية ورسائل واضحة لزيادة العملاء المحتملين.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">تواصل معي</h2>
+      <div class="card" style="max-width:640px;">
+        <p class="muted">جاهز لسماع فكرتك وبناء تجربة مميزة.</p>
+        <div class="chips" style="margin-top:12px;">
+          <a class="chip" href="mailto:abdo572009ahmed@gmail.com">abdo572009ahmed@gmail.com</a>
+          <a class="chip" href="https://wa.me/201062707461" target="_blank" rel="noopener">واتساب: 201062707461</a>
+          <a class="chip" href="https://linkedin.com/in/abdo" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="chip" href="https://www.facebook.com/profile.php?id=61579011426478" target="_blank" rel="noopener">Facebook</a>
+          <a class="chip" href="https://www.instagram.com/abdomosaaaa/?next=%2F" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2025 عبدالرحمن أحمد موسى. كل الحقوق محفوظة.</footer>
+</body>
+</html>
